@@ -1,0 +1,18 @@
+%form{ :action => "/gift", :method => "post"}
+  %fieldset
+    %label{:for => "gift[title]"} Title:
+    %input{:type => :text, :name => "gift[title]"}
+
+    %label{:for => "gift[size]"} Size:
+    %input{:type => :text, :name => "gift[size]"}
+    
+    %label{:for => "gift[price]"} Price:
+    %input{:type => :text, :name => "gift[price]"}
+
+    %label{:for => "gift[image]"} Image:
+    %input{:type => :url, :name => "gift[image]"}
+
+    %label{:for => "gift[url]"} URL:
+    %input{:type => :url, :name => "gift[url]"}
+
+    %input{:type => :submit, :value => "Send", :class => "button"}

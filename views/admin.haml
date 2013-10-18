@@ -1,0 +1,28 @@
+%h1 Pete's Gifts - Admin
+
+%table
+  %tbody
+    %tr
+      %th Title
+      %th Size
+      %th Price
+      %th Image
+      %th No. Clicks
+      %th Purchased
+      %th Actions
+
+    - @gifts.each do |gift|
+      %tr
+        %td
+          %a{:href => gift.url, :target => :_blank}
+            = gift.title
+        %td= gift.size
+        %td= gift.price
+        %td
+          %img{:src => gift.image, :width => 100}
+        %td= gift.clicks
+        %td= gift.purchased
+        %td
+          %form{ :action => "/gift/#{gift.id}", :method => :post }
+            %input{:type => :hidden, :name => :_method, :value => :delete}
+            %input{:type => :submit, :value => "Delete"}
