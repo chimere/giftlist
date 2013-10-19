@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'sinatra'
 require 'Haml'
 require 'mongo'
@@ -43,16 +42,16 @@ module Giftlist
       haml :admin
     end
 
-    get '/new' do
-      @gift = Gift.new
-      haml :new
+    get '/edit/:id' do |id|
+      @gift = Gift.find(id)
+      haml :edit
     end
 
     post '/gift' do
       @gift = Gift.new(params[:gift])
       
       if @gift.save
-        redirect '/new'
+        redirect '/admin'
       else
         "Error saving doc"
       end
@@ -68,6 +67,20 @@ module Giftlist
       @gift = Gift.find(params[:id])
       @gift.delete
       redirect '/admin'   
+    end
+
+
+
+    helpers do
+      def yes_no(boolean)
+        return "Yes" if boolean
+        return "No"
+      end
+
+      def size_applicable(size)
+        return size if size
+        return "n/a"
+      end
     end
   end
 end

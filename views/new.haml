@@ -1,4 +1,4 @@
-%form{ :action => "/gift", :method => "post"}
+%form{ :action => "/gift", :method => :post}
   %fieldset
     %label{:for => "gift[title]"} Title:
     %input{:type => :text, :name => "gift[title]"}
@@ -15,4 +15,4 @@
     %label{:for => "gift[url]"} URL:
     %input{:type => :url, :name => "gift[url]"}
 
-    %input{:type => :submit, :value => "Send", :class => "button"}
+    %input{:type => :submit, :value => "Save", :class => "button"}

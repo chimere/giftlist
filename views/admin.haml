@@ -1,5 +1,7 @@
 %h1 Pete's Gifts - Admin
 
+= haml :new
+
 %table
   %tbody
     %tr
@@ -16,13 +18,16 @@
         %td
           %a{:href => gift.url, :target => :_blank}
             = gift.title
-        %td= gift.size
+        %td= size_applicable(gift.size)
         %td= gift.price
         %td
-          %img{:src => gift.image, :width => 100}
+          %img{:src => gift.image, :width => 50}
         %td= gift.clicks
-        %td= gift.purchased
+        %td= yes_no(gift.purchased)
         %td
           %form{ :action => "/gift/#{gift.id}", :method => :post }
             %input{:type => :hidden, :name => :_method, :value => :delete}
             %input{:type => :submit, :value => "Delete"}
+
+          %a{:href => "/edit/#{gift.id}"}
+            Edit

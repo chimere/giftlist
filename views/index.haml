@@ -1,6 +1,8 @@
-%h1 Pete's Gift List
+%h1 Gift List
+.meta
+  %h4 Thanks for visiting
 
-%ul
+%ul.gifts
   - @gifts.each do |gift|
     - unless gift.title.blank?
       %li
@@ -11,14 +13,15 @@
           %h2
             = gift.title
         
-        - unless gift.size.blank?
-          %h4 Size: #{gift.size}
-        %p
+        %h4
+          = gift.size.blank?
+        - unless gift.size == ""
+          %h4 
+            Size: 
+            = gift.size
+        %p<
           &#163;
           = gift.price
-
-        %p
-          = gift.purchased
           
         %div.purchase
           %form{ :action => "/gift/#{gift.id}/purchased", :method => :post }

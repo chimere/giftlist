@@ -1,7 +1,33 @@
 !!!  
 %html  
   %head  
-    %title This is the Title in a title tag within the head tag  
+    %meta{charset: "utf-8"}/
+    %meta{content: "chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Lato:900|Merriweather:400,900", rel: "stylesheet", type: "text/css"}/
+    %link{rel: 'stylesheet', href: '/stylesheets/index.css'}
+    /[if lt IE 9]
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    %title Pete's Gift List
+    %meta{content: "A small gift list application for sharing affiliate linked gifts with my friends and family.", name: "description"}/
+
   %body
-    %section#content
+    %header
+      %nav
+        %a.home{href: "/index.html"} Peter Roome
+
+    %section.content
       = yield 
+
+    %script{src: "/javascripts/application.js"}
+
+    %footer
+      %div
+        %p
+          %a{href: "http://peteroome.com"} Made by Pete
+      .right
+        %p.copyright
+          &#169;
+          = Time.now.year
+          Peter Roome
+
+        
