@@ -19,7 +19,8 @@ module Giftlist
     attr_accessible :title,
                     :price,
                     :image,
-                    :url
+                    :url,
+                    :size
   end
 
   class App < Sinatra::Application
@@ -45,6 +46,15 @@ module Giftlist
     get '/edit/:id' do |id|
       @gift = Gift.find(id)
       haml :edit
+    end
+
+    put '/update/:id' do
+      @gift = Gift.find(params[:id])
+      if @gift.update_attributes(params[:gift])
+        redirect '/admin'
+      else
+        "Error saving doc"
+      end
     end
 
     post '/gift' do
