@@ -23,7 +23,11 @@
         %td
           %img{:src => gift.image, :width => 50}
         %td= gift.clicks
-        %td= yes_no(gift.purchased)
+        %td
+          = yes_no(gift.purchased)
+          %form{ :action => "/gift/#{gift.id}/purchased", :method => :post }
+            %input{:type => :hidden, :name => :_method, :value => :put}
+            %input{:type => :submit, :value => "Purchased?"}
         %td
           %form{ :action => "/gift/#{gift.id}", :method => :post }
             %input{:type => :hidden, :name => :_method, :value => :delete}

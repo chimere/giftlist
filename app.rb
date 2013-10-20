@@ -96,8 +96,9 @@ module Giftlist
 
     put '/gift/:id/purchased' do |id|
       @gift = Gift.find(id)
-      @gift.update_attribute(:purchased, true)
-      redirect '/'
+      value = @gift.purchased ? false : true
+      @gift.update_attribute(:purchased, value)
+      redirect back
     end
 
     delete '/gift/:id' do
