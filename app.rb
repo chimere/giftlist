@@ -34,12 +34,38 @@ module Giftlist
       Mongoid.load!("config/mongoid.yml")
     end
 
+    helpers do
+      # Basic auth
+      def protected!
+        return if authorized?
+        headers['WWW-Authenticate'] = 'Basic realm="Restricted Area"'
+        halt 401, "Not authorized\n"
+      end
+
+      def authorized?
+        @auth ||=  Rack::Auth::Basic::Request.new(request.env)
+        @auth.provided? and @auth.basic? and @auth.credentials and @auth.credentials == ['pete', 'roome']
+      end
+      # End of basic auth
+
+      def yes_no(boolean)
+        return "Yes" if boolean
+        return "No"
+      end
+
+      def size_applicable(size)
+        return size if size
+        return "n/a"
+      end
+    end
+
     get '/' do
       @gifts = Gift.where(purchased: false)
       haml :index
     end
 
     get '/admin' do
+      protected!
       @gifts = Gift.all
       haml :admin
     end
@@ -78,20 +104,6 @@ module Giftlist
       @gift = Gift.find(params[:id])
       @gift.delete
       redirect '/admin'   
-    end
-
-
-
-    helpers do
-      def yes_no(boolean)
-        return "Yes" if boolean
-        return "No"
-      end
-
-      def size_applicable(size)
-        return size if size
-        return "n/a"
-      end
     end
   end
 end
