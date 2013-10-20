@@ -1,0 +1,2 @@
+$ ->
+  window.giftlist = new Giftlist

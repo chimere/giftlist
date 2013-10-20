@@ -94,6 +94,16 @@ module Giftlist
       end
     end
 
+    post '/gift/clicks/increment' do
+      @gift = Gift.find(params[:gift][:id])
+      
+      if @gift.update_attribute(:clicks, @gift.clicks.next)
+        json: "Gift clicks successfully incremented: #{@gift.clicks}"
+      else
+        json: "There was a problem incrementing the gifts clicks."
+      end
+    end
+
     put '/gift/:id/purchased' do |id|
       @gift = Gift.find(id)
       value = @gift.purchased ? false : true
