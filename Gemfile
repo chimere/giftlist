@@ -5,6 +5,7 @@ gem 'puma'
 gem 'mongo'
 gem 'bson_ext'
 gem 'mongoid'
+gem 'json'
 
 group :production do
   gem 'newrelic_rpm'

@@ -4,6 +4,7 @@ require 'haml'
 require 'mongo'
 require 'uri'
 require 'mongoid'
+require 'json'
 
 module Giftlist
   class Gift
@@ -94,13 +95,14 @@ module Giftlist
       end
     end
 
-    post '/gift/clicks/increment' do
+    post '/gift/clicks/increment.json' do
+      content_type :json
       @gift = Gift.find(params[:gift][:id])
       
       if @gift.update_attribute(:clicks, @gift.clicks.next)
-        json: "Gift clicks successfully incremented: #{@gift.clicks}"
+        "Gift clicks successfully incremented: #{@gift.clicks}".to_json
       else
-        json: "There was a problem incrementing the gifts clicks."
+        "There was a problem incrementing the gifts clicks.".to_json
       end
     end
 

@@ -20,7 +20,7 @@
 %ul.gifts
   - @gifts.each do |gift|
     - unless gift.title.blank?
-      %li{:data_gift => gift.id}
+      %li{"data-gift" => gift.id}
         %a{:href => gift.url, :target => :_blank}
           %img{:src => gift.image}
         

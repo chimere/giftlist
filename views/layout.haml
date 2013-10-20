@@ -11,6 +11,7 @@
     %meta{content: "A small gift list application for sharing affiliate linked gifts with my friends and family.", name: "description"}/
 
   %body
+    = haml :"shared/analytics"
     %header
       %nav
         %a.home{href: "/"} Peter Roome
@@ -18,8 +19,6 @@
 
     %section.content
       = yield 
-
-    %script{src: "/javascripts/application.js"}
 
     %footer
       %div
@@ -31,4 +30,5 @@
           = Time.now.year
           Peter Roome
 
-        
+    %script{src: "/javascripts/jquery.js"}
+    %script{src: "/javascripts/application.js"}
