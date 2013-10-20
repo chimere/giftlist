@@ -2,12 +2,21 @@
 .meta
   %h4 Thanks for visiting
 
+.three-col
+  %p 
+    Where possible, each of these links is attached to an affiliate account. This means if you click on a link to a gift, and purchase the gift, a small percentage (approx. 3%) of the money spent will be rewarded to the affiliate account.
+
+  %p 
+    After Christmas, any money accumulated in the affiliate account will be donated to a charity or good cause. Suggestions of a worthy cause are welcome, please 
+    %a{:href => "mailto:pete.roome@gmail.com"}
+      email you ideas to me.
+
 %ul.gifts
   - @gifts.each do |gift|
     - unless gift.title.blank?
       %li
         %a{:href => gift.url, :target => :_blank}
-          %img{:src => gift.image, :width => "250"}
+          %img{:src => gift.image}
         
         %a{:href => gift.url, :target => :_blank}
           %h2
@@ -16,11 +25,12 @@
           %h4 
             Size: 
             = size_applicable(gift.size)
-        %p<
-          &#163;
-          = gift.price
           
-        %div.purchase
+        .purchase
+          %p<
+            &#163;
+            = gift.price
+
           %form{ :action => "/gift/#{gift.id}/purchased", :method => :post }
             %input{:type => :hidden, :name => :_method, :value => :put}
             %input{:type => :submit, :value => "Purchased?"}

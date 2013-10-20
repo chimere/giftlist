@@ -1,18 +1,18 @@
 /*
 Syntax error: Undefined variable: "$white".
-        on line 78 of ./public/stylesheets/sass/layout.scss
+        on line 86 of ./public/stylesheets/sass/layout.scss
 
-73:     }
-74:     p {
-75:         margin: 0;
-76:     }
-77:     p, a {
-78:         color: $white;
-79:     }
-80: }
+81:     }
+82:     p {
+83:         margin: 0;
+84:     }
+85:     p, a {
+86:         color: $white;
+87:     }
+88: }
 
 Backtrace:
-./public/stylesheets/sass/layout.scss:78
+./public/stylesheets/sass/layout.scss:86
 /Users/peterroome/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/script/variable.rb:49:in `_perform'
 /Users/peterroome/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/script/node.rb:40:in `perform'
 /Users/peterroome/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
@@ -71,4 +71,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$white\".\A         on line 78 of ./public/stylesheets/sass/layout.scss\A \A 73:     }\A 74:     p {\A 75:         margin: 0;\A 76:     }\A 77:     p, a {\A 78:         color: $white;\A 79:     }\A 80: }"; }
+  content: "Syntax error: Undefined variable: \"$white\".\A         on line 86 of ./public/stylesheets/sass/layout.scss\A \A 81:     }\A 82:     p {\A 83:         margin: 0;\A 84:     }\A 85:     p, a {\A 86:         color: $white;\A 87:     }\A 88: }"; }

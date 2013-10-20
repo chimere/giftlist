@@ -5,14 +5,14 @@ Syntax error: Undefined variable: "$light-gray".
 4: 
 5:   li {
 6:     display: inline-block;
-7:     margin: 0 18px 18px 0;
+7:     margin: 0 0 18px 0;
 8:     padding: 10px;
-9:     border: 1px solid $light-gray;
-10:     width: 250px;
+9:     border: 2px solid $light-gray;
+10:     width: 90%;
 11:     vertical-align: top;
 12: 
-13:     &:hover {
-14:       border-color: $orange;
+13:     img {
+14:       width: 100%;
 
 Backtrace:
 ./public/stylesheets/sass/gifts.scss:9
@@ -78,4 +78,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$light-gray\".\A         on line 9 of ./public/stylesheets/sass/gifts.scss\A \A 4: \A 5:   li {\A 6:     display: inline-block;\A 7:     margin: 0 18px 18px 0;\A 8:     padding: 10px;\A 9:     border: 1px solid $light-gray;\A 10:     width: 250px;\A 11:     vertical-align: top;\A 12: \A 13:     &:hover {\A 14:       border-color: $orange;"; }
+  content: "Syntax error: Undefined variable: \"$light-gray\".\A         on line 9 of ./public/stylesheets/sass/gifts.scss\A \A 4: \A 5:   li {\A 6:     display: inline-block;\A 7:     margin: 0 0 18px 0;\A 8:     padding: 10px;\A 9:     border: 2px solid $light-gray;\A 10:     width: 90%;\A 11:     vertical-align: top;\A 12: \A 13:     img {\A 14:       width: 100%;"; }
