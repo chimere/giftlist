@@ -3,7 +3,7 @@
 = haml :new
 
 %table
-  %tbody
+  %thead
     %tr
       %th Title
       %th Size
@@ -12,7 +12,7 @@
       %th No. Clicks
       %th Purchased
       %th Actions
-
+  %tbody
     - @gifts.each do |gift|
       %tr
         %td
@@ -23,15 +23,17 @@
         %td
           %img{:src => gift.image, :width => 50}
         %td= gift.clicks
+        %td= yes_no(gift.purchased)
         %td
-          = yes_no(gift.purchased)
+          %a{:href => "/edit/#{gift.id}"}
+            Edit
+
           %form{ :action => "/gift/#{gift.id}/purchased", :method => :post }
             %input{:type => :hidden, :name => :_method, :value => :put}
             %input{:type => :submit, :value => "Purchased?"}
-        %td
+
           %form{ :action => "/gift/#{gift.id}", :method => :post }
             %input{:type => :hidden, :name => :_method, :value => :delete}
             %input{:type => :submit, :value => "Delete"}
 
-          %a{:href => "/edit/#{gift.id}"}
-            Edit
+          
