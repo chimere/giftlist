@@ -5,16 +5,22 @@ form{
 input[type=submit]{
   font-family: 'Merriweather', 'Lato', 'Helvetica Neue', Helvetica, Arial, serif;
   float: right;
-  background: none;
-  border: 1px solid #000;
+  background: $orange;
+  border: none;
   font-size: 0.8em;
-  margin: 10px 0;
-  padding: 10px 15px;
-  text-transform: uppercase;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 12px 8px;
 
   &:hover{
-    color: #fff;
-    background: #000;
+    background: $dark-orange;
     cursor: pointer;
+  }
+}
+
+form.admin{
+  input[type=submit]{
+    color: #fff;
+    margin: 10px 0;
   }
 }

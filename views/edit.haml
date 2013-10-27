@@ -1,4 +1,4 @@
-%form{ :action => "/update/#{@gift.id}", :method => :post}
+%form{ :action => "/update/#{@gift.id}", :method => :post, :class => "admin"}
   %input{:type => :hidden, :name => :_method, :value => :put }
   %fieldset
     %label{:for => "gift[title]"} Title:
